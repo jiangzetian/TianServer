@@ -26,7 +26,7 @@ class Category extends Auth
         //获取请求数据
         $createArr = input('get.');
         //验证器
-        validate(CategoryValidate::class)->scene('index')->check($createArr);
+        validate(CategoryValidate::class)->scene('page')->check($createArr);
         if ($checkArr['code']!==1){return $checkArr;}
         //查询
         $sqlData = catagoryModel::where([
