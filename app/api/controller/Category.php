@@ -10,8 +10,17 @@ use app\api\validate\CategoryValidate;
 
 class Category extends Auth
 {
-    //查询
+    //全部查询
     public function index(){
+        //权限验证
+        $checkArr = $this->checkToken();
+        //查询
+        $sqlData = catagoryModel::select();
+
+        return common\success(200,'查询文章分类成功',$sqlData);
+    }
+    //分页查询
+    public function page(){
         //权限验证
         $checkArr = $this->checkToken();
         //获取请求数据
@@ -19,8 +28,7 @@ class Category extends Auth
         //验证器
         validate(CategoryValidate::class)->scene('index')->check($createArr);
         if ($checkArr['code']!==1){return $checkArr;}
-
-        //查询用户
+        //查询
         $sqlData = catagoryModel::where([
             ['name', 'like', '%'.$createArr['name'].'%'],
         ])
@@ -30,7 +38,6 @@ class Category extends Auth
                 'page' => $createArr['currentPage'],
             ])
             ->toArray();
-
         return common\success(200,'查询文章分类成功',$sqlData);
     }
     //新增

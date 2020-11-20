@@ -16,9 +16,10 @@ class CategoryValidate extends Validate
     ];
     protected $message = [];
     protected $scene = [
-        'index' => ['pageSize','currentPage'],
+        'index' => [],
+        'page' => ['pageSize','currentPage'],
         'create'  =>  ['name','sort'],
         'update'  =>  ['id','name','sort'],
-        'delete'  =>  ['id',],
+        'delete'  =>  ['id'],
     ];
 }
