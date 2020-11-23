@@ -14,6 +14,7 @@ class Category extends Auth
     public function index(){
         //权限验证
         $checkArr = $this->checkToken();
+        if ($checkArr['code']!==1){return $checkArr;}
         //查询
         $sqlData = catagoryModel::select();
 
@@ -23,11 +24,11 @@ class Category extends Auth
     public function page(){
         //权限验证
         $checkArr = $this->checkToken();
+        if ($checkArr['code']!==1){return $checkArr;}
         //获取请求数据
         $createArr = input('get.');
         //验证器
         validate(CategoryValidate::class)->scene('page')->check($createArr);
-        if ($checkArr['code']!==1){return $checkArr;}
         //查询
         $sqlData = catagoryModel::where([
             ['name', 'like', '%'.$createArr['name'].'%'],
