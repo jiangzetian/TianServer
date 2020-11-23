@@ -23,7 +23,7 @@ class ArticleValidate extends Validate
     protected $scene = [
         'page'    =>  ['pageSize','currentPage'],
         'create'  =>  ['title','desc','category','url','date','content','html'],
-        'update'  =>  ['id','title','sort'],
+        'update'  =>  ['id','title','desc','category','url','date','content','html'],
         'delete'  =>  ['id'],
         'detail'  =>  ['id'],
     ];

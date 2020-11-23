@@ -63,6 +63,29 @@ class Article extends Auth
         //返回
         return common\success(200,'添加文章分类成功',$sqlData);
     }
+    //更新
+    public function update(){
+        //权限验证
+        $checkArr = $this->checkToken();
+        if ($checkArr['code']!==1){return $checkArr;}
+        //获取请求数据
+        $updateArr = input('put.');
+        //验证器
+        validate(ArticleValidate::class)->scene('update')->check($updateArr);
+        //更新
+        $sqlData = articleModel::update([
+            'id'=>$updateArr['id'],
+            'name'=>$updateArr['title'],
+            'desc'=>$updateArr['desc'],
+            'category'=>$updateArr['category'],
+            'url'=>$updateArr['url'],
+            'date'=>$updateArr['date'],
+            'content'=>$updateArr['content'],
+            'html'=>$updateArr['html'],
+        ],['id'=>$updateArr['id']],['id','title','desc','category','url','date','content','html']);
+
+        return common\success(200,'更新文章成功',$sqlData);
+    }
     //删除
     public function delete(){
         //权限验证
