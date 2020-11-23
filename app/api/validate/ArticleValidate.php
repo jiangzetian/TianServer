@@ -21,9 +21,9 @@ class ArticleValidate extends Validate
     ];
     protected $message = [];
     protected $scene = [
-        'page' => ['pageSize','currentPage'],
-        'create' => ['title','desc','category','url','date','content','html'],
-        'update'  =>  ['id','name','sort'],
+        'page'    =>  ['pageSize','currentPage'],
+        'create'  =>  ['title','desc','category','url','date','content','html'],
+        'update'  =>  ['id','title','sort'],
         'delete'  =>  ['id'],
     ];
 }
