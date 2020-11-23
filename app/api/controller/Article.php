@@ -33,6 +33,8 @@ class Article extends Auth
             ->toArray();
         return common\success(200,'查询文章列表成功',$sqlData);
     }
+    //获取详情
+
     //新增
     public function create()
     {
@@ -48,5 +50,19 @@ class Article extends Auth
         $sqlData = articleModel::create($articleArr,['id','title','desc','category','url','date','content','html']);
         //返回
         return common\success(200,'添加文章分类成功',$sqlData);
+    }
+    //删除
+    public function delete(){
+        //权限验证
+        $checkArr = $this->checkToken();
+        if ($checkArr['code']!==1){return $checkArr;}
+        //获取请求数据
+        $deleteArr = input('delete.');
+        //验证器
+        validate(ArticleValidate::class)->scene('delete')->check($deleteArr);
+        //删除
+        $sqlData = articleModel::where('id','=',$deleteArr['id'])->delete();
+
+        return common\success(200,'删除文章'.$deleteArr['id'].'成功',$sqlData);
     }
 }
