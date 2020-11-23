@@ -25,5 +25,6 @@ class ArticleValidate extends Validate
         'create'  =>  ['title','desc','category','url','date','content','html'],
         'update'  =>  ['id','title','sort'],
         'delete'  =>  ['id'],
+        'detail'  =>  ['id'],
     ];
 }

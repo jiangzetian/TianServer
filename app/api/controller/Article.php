@@ -34,7 +34,19 @@ class Article extends Auth
         return common\success(200,'查询文章列表成功',$sqlData);
     }
     //获取详情
+    public function detail(){
+        //权限验证
+        $checkArr = $this->checkToken();
+        if ($checkArr['code']!==1){return $checkArr;}
+        //获取请求数据
+        $deleteArr = input('delete.');
+        //验证器
+        validate(ArticleValidate::class)->scene('detail')->check($deleteArr);
+        //删除
+        $sqlData = articleModel::where('id','=',$deleteArr['id'])->find();
 
+        return common\success(200,'查询文章'.$deleteArr['id'].'成功',$sqlData);
+    }
     //新增
     public function create()
     {
