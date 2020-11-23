@@ -75,7 +75,7 @@ class Article extends Auth
         //更新
         $sqlData = articleModel::update([
             'id'=>$updateArr['id'],
-            'name'=>$updateArr['title'],
+            'title'=>$updateArr['title'],
             'desc'=>$updateArr['desc'],
             'category'=>$updateArr['category'],
             'url'=>$updateArr['url'],
