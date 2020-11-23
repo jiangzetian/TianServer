@@ -27,7 +27,7 @@ class Article extends Auth
         validate(ArticleValidate::class)->scene('create')->check($articleArr);
         //新增
         $articleArr['id']=uniqid('',true);
-        $sqlData = articleModel::create($articleArr,['id','title','desc','category','url','date','content','html','visits','likes']);
+        $sqlData = articleModel::create($articleArr,['id','title','desc','category','url','date','content','html']);
         //返回
         return common\success(200,'添加文章分类成功',$sqlData);
     }
