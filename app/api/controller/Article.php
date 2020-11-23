@@ -39,7 +39,7 @@ class Article extends Auth
         $checkArr = $this->checkToken();
         if ($checkArr['code']!==1){return $checkArr;}
         //获取请求数据
-        $deleteArr = input('delete.');
+        $deleteArr = input('get.');
         //验证器
         validate(ArticleValidate::class)->scene('detail')->check($deleteArr);
         //删除
