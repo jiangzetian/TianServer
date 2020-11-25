@@ -29,7 +29,7 @@ class Index
             'all_category'=>$all_category,
             'all_likes' => $all_likes
         ])
-        ->find();
+        ->find(1);
 
         return common\success(200,'查询统计数据成功！',$sqlData);
     }
