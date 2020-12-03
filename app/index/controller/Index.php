@@ -11,7 +11,7 @@ class Index
     {
         return '您好！这是一个[index]示例应用';
     }
-    //总访问量加一
+    //总访问量
     public function addAllVisits(){
         $sqlData = WatchModel::where('id', 1)
             ->inc('all_visits')

@@ -25,6 +25,7 @@ class Article extends Auth
         $sqlData = articleModel::where([
             ['title', 'like', '%'.$createArr['title'].'%'],
         ])
+            ->withoutField('content,html')
             ->order('date', 'desc')
             ->paginate([
                 'list_rows'=> $createArr['pageSize'],

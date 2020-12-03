@@ -16,7 +16,7 @@ class Index
     }
     public function watch(){
         //获取总点赞数
-        $all_likes = array_sum(Article::column('likes'));
+        $all_likes = Article::sum('likes');
         //获取总文章数
         $all_article = Article::count();
         //获取总分类数
