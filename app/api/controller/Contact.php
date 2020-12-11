@@ -82,6 +82,9 @@ class Contact extends Auth
         $sqlData = ContactModel::update([
             'id'=>$updateArr['id'],
             'name'=>$updateArr['name'],
+            'url'=>$updateArr['url'],
+            'img'=>$updateArr['img'],
+            'color'=>$updateArr['color'],
             'sort'=>$updateArr['sort'],
         ],['id'=>$updateArr['id']],['id','name','sort']);
 
