@@ -86,7 +86,7 @@ class Contact extends Auth
             'img'=>$updateArr['img'],
             'color'=>$updateArr['color'],
             'sort'=>$updateArr['sort'],
-        ],['id'=>$updateArr['id']],['id','name','sort']);
+        ],['id'=>$updateArr['id']],['id','name','url','img','color','sort']);
 
         return common\success(200,'更新联系成功',$sqlData);
     }
