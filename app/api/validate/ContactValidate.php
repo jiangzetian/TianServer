@@ -22,7 +22,7 @@ class ContactValidate extends Validate
         'index' => [],
         'page' => ['pageSize','currentPage'],
         'create'  =>  ['name','url','img','color','sort'],
-        'update'  =>  ['id','name','sort'],
+        'update'  =>  ['id','name','url','img','color','sort'],
         'delete'  =>  ['id'],
     ];
 }

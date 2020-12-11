@@ -17,7 +17,7 @@ class Contact extends Auth
         //查询
         $sqlData = ContactModel::select();
 
-        return common\success(200,'查询文章分类成功',$sqlData);
+        return common\success(200,'查询联系成功',$sqlData);
     }
     //分页查询
     public function page(){
@@ -29,14 +29,16 @@ class Contact extends Auth
         //验证器
         validate(ContactValidate::class)->scene('page')->check($createArr);
         //查询
-        $sqlData = ContactModel::
-            order('sort', 'desc')
+        $sqlData = ContactModel::where([
+            ['name', 'like', '%'.$createArr['name'].'%'],
+        ])
+            ->order('sort', 'desc')
             ->paginate([
                 'list_rows'=> $createArr['pageSize'],
                 'page' => $createArr['currentPage'],
             ])
             ->toArray();
-        return common\success(200,'查询文章分类成功',$sqlData);
+        return common\success(200,'查询联系成功',$sqlData);
     }
     //新增
     public function create(){
@@ -65,7 +67,7 @@ class Contact extends Auth
         //删除
         $sqlData = ContactModel::where('id','=',$deleteArr['id'])->delete();
 
-        return common\success(200,'删除文章分类'.$deleteArr['name'].'成功',$sqlData);
+        return common\success(200,'删除联系'.$deleteArr['name'].'成功',$sqlData);
     }
     //更新
     public function update(){
@@ -83,6 +85,6 @@ class Contact extends Auth
             'sort'=>$updateArr['sort'],
         ],['id'=>$updateArr['id']],['id','name','sort']);
 
-        return common\success(200,'更新文章分类成功',$sqlData);
+        return common\success(200,'更新联系成功',$sqlData);
     }
 }
