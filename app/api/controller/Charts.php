@@ -21,6 +21,7 @@ class Charts extends Auth
         validate(ChartsValidate::class)->scene('index')->check($indexArr);
         //查询
         $sqlData = chartsModel::where('name',$indexArr['name'])->find();
+        $sqlData = json_decode($sqlData['data']);
 
         return common\success(200,'查询图表数据成功',$sqlData);
     }

@@ -9,7 +9,7 @@ use app\middleware\Auth;
 use index\common;
 class Article extends Auth
 {
-    //获取文章列表
+    //获取文章列表(分页)
     public function page()
     {
         //获取请求数据
@@ -41,7 +41,7 @@ class Article extends Auth
         //返回
         return common\success(200,'查询文章详情成功'.$deleteArr['id'].'成功',$sqlData);
     }
-    //文章访客
+    //文章访客增加
     public function addVisits(){
         //获取请求数据
         $putArr = input('put.');
