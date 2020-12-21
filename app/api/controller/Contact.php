@@ -82,11 +82,12 @@ class Contact extends Auth
         $sqlData = ContactModel::update([
             'id'=>$updateArr['id'],
             'name'=>$updateArr['name'],
+            'desc'=>$updateArr['desc'],
             'url'=>$updateArr['url'],
             'img'=>$updateArr['img'],
             'color'=>$updateArr['color'],
             'sort'=>$updateArr['sort'],
-        ],['id'=>$updateArr['id']],['id','name','url','img','color','sort']);
+        ],['id'=>$updateArr['id']],['id','name','desc','url','img','color','sort']);
 
         return common\success(200,'更新联系成功',$sqlData);
     }

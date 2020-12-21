@@ -21,8 +21,8 @@ class ContactValidate extends Validate
     protected $scene = [
         'index' => [],
         'page' => ['pageSize','currentPage'],
-        'create'  =>  ['name','url','img','color','sort'],
-        'update'  =>  ['id','name','url','img','color','sort'],
+        'create'  =>  ['name','desc','url','img','color','sort'],
+        'update'  =>  ['id','desc','name','url','img','color','sort'],
         'delete'  =>  ['id'],
     ];
 }
