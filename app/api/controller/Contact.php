@@ -51,7 +51,7 @@ class Contact extends Auth
         validate(ContactValidate::class)->scene('create')->check($createArr);
         //新增
         $createArr['id']=uniqid();
-        $sqlData = ContactModel::create($createArr,['id','name','url','img','color','sort']);
+        $sqlData = ContactModel::create($createArr,['id','name','desc','url','img','color','sort']);
 
         return common\success(200,'添加联系成功',$sqlData);
     }
