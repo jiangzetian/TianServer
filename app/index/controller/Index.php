@@ -19,6 +19,6 @@ class Index
                 ->inc('all_visits')
                 ->update();
         }
-        return common\success(200,'访问量+1',$sqlData);
+        return common\success(200,'访问量+1',null);
     }
 }
