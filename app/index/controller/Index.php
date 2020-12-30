@@ -13,12 +13,9 @@ class Index
     }
     //总访问量
     public function addAllVisits(){
-        $updateArr = input('put.');
-        if($updateArr){
-            $sqlData = WatchModel::where('id', 1)
-                ->inc('all_visits')
-                ->update();
-        }
+        $sqlData = WatchModel::where('id', 1)
+            ->inc('all_visits')
+            ->update();
         return common\success(200,'访问量+1',null);
     }
 }
