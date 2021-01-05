@@ -17,7 +17,7 @@ class links extends Auth
         //查询
         $sqlData = LinksModel::select();
 
-        return common\success(200,'查询联系成功',$sqlData);
+        return common\success(200,'查询友链成功',$sqlData);
     }
     //分页查询
     public function page(){
@@ -38,7 +38,7 @@ class links extends Auth
                 'page' => $createArr['currentPage'],
             ])
             ->toArray();
-        return common\success(200,'查询联系成功',$sqlData);
+        return common\success(200,'查询友链成功',$sqlData);
     }
     //新增
     public function create(){
@@ -53,7 +53,7 @@ class links extends Auth
         $createArr['id']=uniqid();
         $sqlData = LinksModel::create($createArr,['id','name','desc','url','img','color','sort']);
 
-        return common\success(200,'添加联系成功',$sqlData);
+        return common\success(200,'添加友链成功',$sqlData);
     }
     //删除
     public function delete(){
@@ -67,7 +67,7 @@ class links extends Auth
         //删除
         $sqlData = LinksModel::where('id','=',$deleteArr['id'])->delete();
 
-        return common\success(200,'删除联系'.$deleteArr['name'].'成功',$sqlData);
+        return common\success(200,'删除友链'.$deleteArr['name'].'成功',$sqlData);
     }
     //更新
     public function update(){
@@ -89,6 +89,6 @@ class links extends Auth
             'sort'=>$updateArr['sort'],
         ],['id'=>$updateArr['id']],['id','name','desc','url','img','color','sort']);
 
-        return common\success(200,'更新联系成功',$sqlData);
+        return common\success(200,'更新友链成功',$sqlData);
     }
 }
