@@ -29,7 +29,6 @@ class Login extends Auth
                 ->data(["token"=>$token])
                 ->save();
             $sqlData = AdminUser::where("id",$sqlData['id'])
-                ->field('id,name,tel,token')
                 ->find();
             return common\success(200,'登录成功',$sqlData);
         }else{
