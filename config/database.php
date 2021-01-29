@@ -19,21 +19,21 @@ return [
     'connections'     => [
         'mysql' => [
             // 数据库类型
-            'type'              => env('database.type', 'mysql'),
+            'type'              => env('database.type'),
             // 服务器地址
-            'hostname'          => env('database.hostname', '129.226.165.81'),
+            'hostname'          => env('database.hostname'),
             // 数据库名
-            'database'          => env('database.database', 'TianBlog'),
+            'database'          => env('database.database'),
             // 用户名
-            'username'          => env('database.username', 'TianBlog'),
+            'username'          => env('database.username'),
             // 密码
-            'password'          => env('database.password', 'root'),
+            'password'          => env('database.password'),
             // 端口
-            'hostport'          => env('database.hostport', '3306'),
+            'hostport'          => env('database.hostport'),
             // 数据库连接参数
             'params'            => [],
             // 数据库编码默认采用utf8
-            'charset'           => env('database.charset', 'utf8'),
+            'charset'           => env('database.charset'),
             // 数据库表前缀
             'prefix'            => env('database.prefix', ''),
 
@@ -50,7 +50,7 @@ return [
             // 是否需要断线重连
             'break_reconnect'   => false,
             // 监听SQL
-            'trigger_sql'       => env('app_debug', true),
+            'trigger_sql'       => env('app_debug'),
             // 开启字段缓存
             'fields_cache'      => false,
             // 字段缓存路径
