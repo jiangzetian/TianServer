@@ -5,8 +5,6 @@ namespace app\middleware;
 
 use Firebase\JWT\JWT;
 use think\facade\Request;
-
-
 class Auth
 {
     public function checkToken()
