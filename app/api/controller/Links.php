@@ -32,7 +32,7 @@ class links extends Auth
         $sqlData = LinksModel::where([
             ['name', 'like', '%'.$createArr['name'].'%'],
         ])
-            ->order('sort')
+            ->order('sort', 'desc')
             ->paginate([
                 'list_rows'=> $createArr['pageSize'],
                 'page' => $createArr['currentPage'],
