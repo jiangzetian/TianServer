@@ -12,7 +12,8 @@ class Links extends Auth
     //全部查询
     public function index(){
         //查询
-        $sqlData = LinksModel::order('sort', 'desc')->select();
+        $sqlData = LinksModel::order('sort')
+            ->select();
         return common\success(200,'查询友链成功',$sqlData);
     }
 }
